@@ -8,7 +8,7 @@ import ProductCard from './ProductCard';
 import GetHomeProducts from '../../hook/products/GetHomeProducts';
 import GetWishlistHook from '../../hook/user/GetWishlistHook';
 
-const Products = ({title}) => {
+const Products = ({title,reloaded}) => {
   const [items]=GetHomeProducts()
   const [favProd]=GetWishlistHook()
   return (
@@ -53,7 +53,7 @@ const Products = ({title}) => {
           items.map((product,i)=>
             
               <SwiperSlide key={i}>
-          <ProductCard productId={product._id} image={product.image}
+          <ProductCard reloaded={reloaded} productId={product._id} image={product.image}
            title={product.name} description={product.description}
             smallPrice={product.smallPrice} mediumPrice={product.mediumPrice} largePrice={product.largePrice} ratingAvg={product.ratingsAverage} favProd={favProd}/>
          </SwiperSlide>

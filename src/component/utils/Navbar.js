@@ -61,7 +61,7 @@ const Navbar = () => {
          
           <Link  className="text-reset cart me-3" to="/cart">
           <FontAwesomeIcon icon={faCartShopping} />
-          <span className='cartItemsQuantity'>{itemsNum || 0}</span>
+          <span style={!itemsNum ?{display:"none"} : {display: "flex"}} className='cartItemsQuantity'>{itemsNum || 0}</span>
           </Link>
     
           

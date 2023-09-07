@@ -16,7 +16,6 @@ const {ProductId}=useParams()
 
 const [name ,ratings ,user ,onSubmit ,OnChangeRateText ,OnChangeRateValue]=AddReviewHook(ProductId)
 const [allReview, onPress ,pageCount] =ViewAllReviewHook(ProductId)
-console.log(allReview);
 const customIcons = {
   1: <FrownOutlined/>,
   2: <FrownOutlined />,
@@ -44,7 +43,7 @@ const tooltips = ["سيء للغاية", "سيء", "جيد", "جيد جداَ", 
             <h5 className='mb-5'>التعليقات :</h5>
 
             {
-              allReview.data ? allReview.data.map((e,i)=>{
+              allReview?allReview.data ? allReview.data.map((e,i)=>{
                 return(
                   
             <div key={i} className="single-review mb-3 mt-2">
@@ -54,7 +53,7 @@ const tooltips = ["سيء للغاية", "سيء", "جيد", "جيد جداَ", 
             <p className='me-4'>{e.name}</p>
             </div>
                 )
-              }) : <h3>لايوجد تقييمات</h3>
+              }) : <h3>لايوجد تقييمات</h3> : null
             }
 
             
