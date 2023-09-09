@@ -27,10 +27,9 @@ const OrderPayCardHook = (addressDetalis) => {
         setLoading(true)
         await dispatch(createOrderCARD(cartID, {
             shippingAddress: {
-                details: addressDetalis.alias,
+                details: addressDetalis.details,
                 phone: addressDetalis.phone,
-                city: "",
-                postalCode: ""
+                city: addressDetalis.city,
             }
         }))
         setLoading(false)
