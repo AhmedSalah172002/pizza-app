@@ -39,7 +39,6 @@ const LoginHook = () => {
                         window.location.href = "/"
                     }, 1500);
                 } else {
-                    notify("هناك خطأ في عملية التسجيل", "error")
                     localStorage.removeItem("token")
                     localStorage.removeItem("user")
                 }

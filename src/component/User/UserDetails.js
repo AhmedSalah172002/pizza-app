@@ -10,22 +10,26 @@ import GetOrders from '../../hook/admin/GetOrders'
 import GetAllOrders from '../../hook/admin/GetAllOrders'
 
 const UserDetails = () => {
+    let auth
+  if(localStorage.getItem("user") !== null){
+    auth = JSON.parse(localStorage.getItem("user"))
+  }
     const [item] =ProfileHook()
     const [alias, detalis, phone,city, onChangeAlias,onChangeCity, onChangeDetalis, onChangePhone, onSubmit]=AddAddressHook()
     const [oldpassword, newpassword, confirmPassword, onChangeConfirmPassword,onChangePassword,onChangePrevPassword,OnSubmit]=ChangeMyPasswordHook()
     const [orderData] =GetAllOrders()
     let total=0
     const totalPaid = orderData ?  orderData.map((e)=> total+=e.totalOrderPrice) :0
-    const dateString = orderData ? orderData[orderData.length-1] ? orderData[orderData.length-1].createdAt :null : null
+    const dateString = orderData ? orderData[orderData.length-1] ? orderData[orderData.length-1].createdAt :new Date() : new Date()
 
     const date1 = new Date(dateString);
+    console.log(date1);
 
     const currentDate = new Date();
 
     const timeDifference = currentDate - date1;
 
     const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
-
     let day=daysDifference.toFixed(0)
   return (
 <>
@@ -82,7 +86,7 @@ const UserDetails = () => {
                 item.role ==="user" ? <div className="user-activity d-flex justify-content-between mt-3 mb-3">
                 <div className="total">
                     <h5 >إجمالي الصرف</h5 >
-                    <p className='text-center fs-5'>{totalPaid[totalPaid.length-1]} جنية </p>
+                    <p className='text-center fs-5'>{totalPaid[totalPaid.length-1] || 0} جنية </p>
                 </div>
                 <div className="total">
                     <h5 >آخر طلب</h5 >
@@ -104,9 +108,11 @@ const UserDetails = () => {
                 <div className="add d-flex justify-content-between align-items-center">
                 <h3 style={{color:"#fd9d3e"}}>العناوين الرئيسية</h3>
             <div>
-            <button style={{borderColor:"transparent",backgroundColor:"transparent",fontSize:"1.2em"}} data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample1" aria-controls="offcanvasExample1">
+          {
+            auth ? auth.role === "user" ?   <button style={{borderColor:"transparent",backgroundColor:"transparent",fontSize:"1.2em"}} data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample1" aria-controls="offcanvasExample1">
             <FontAwesomeIcon icon={faPenToSquare}  /> 
-            </button>
+            </button> :null : null
+          }
 
             <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample1" aria-labelledby="offcanvasExampleLabel">
                 <div className="offcanvas-header">
