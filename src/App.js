@@ -47,22 +47,22 @@ function App() {
 
 
       <Route path="/" element={<HomePage /> } />
-      <Route path="/products" element={<ProductsPage /> } />
-      <Route path="/products/:ProductId" element={<ProductDetails />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<SignupPage />} />
-      <Route path="/add-profile-image" element={<AddProfileImage />} />
-      <Route path="/forgetpassword" element={<ForgetPasswordPage />} />
-      <Route path="/resetcode" element={<ResetPassword />} />
-      <Route path="/newpassword" element={<NewPasswordPage />} />
+      <Route path="products" element={<ProductsPage /> } />
+      <Route path="products/:ProductId" element={<ProductDetails />} />
+      <Route path="login" element={<LoginPage />} />
+      <Route path="signup" element={<SignupPage />} />
+      <Route path="add-profile-image" element={<AddProfileImage />} />
+      <Route path="forgetpassword" element={<ForgetPasswordPage />} />
+      <Route path="resetcode" element={<ResetPassword />} />
+      <Route path="newpassword" element={<NewPasswordPage />} />
 
 
       <Route element={<ProtectedRoute auth={isUser} />}>
-      <Route path="/Myprofile" element={<UserProfilePage />} />
-            <Route path="/Myprofile/wishlist" element={<UserWishlistPage />} />
-            <Route path="/Myprofile/address" element={<UserAddressPage/>} />
-            <Route path="/cart" element={<CartPage/>} />
-            <Route path="/order/paymet" element={<PaymentMethoudPage/>} />
+      <Route path="Myprofile" element={<UserProfilePage />} />
+            <Route path="Myprofile/wishlist" element={<UserWishlistPage />} />
+            <Route path="Myprofile/address" element={<UserAddressPage/>} />
+            <Route path="cart" element={<CartPage/>} />
+            <Route path="order/paymet" element={<PaymentMethoudPage/>} />
           </Route>
 
   
@@ -70,21 +70,21 @@ function App() {
 
 
       <Route element={<ProtectedRoute auth={isAdmin} />}>
-          <Route path="/admin/add-product" element={<AdminPage/>} />
-          <Route path="/admin/products" element={<AdminProductsPage/>} />
-          <Route path="/products/edit/:ProductId" element={<AdminEditProductPage  />} />
-          <Route path="/admin/add-user" element={<AdminAddUSerPage/>} />
-          <Route path="/admin/users" element={<AdminUsersPage/>} />
-          <Route path="/users/edit/:userId" element={<AdminEditUsersPage  />} />
-          <Route path="/admin/add-coupon" element={<AdminAddCouponPage/>} />
-          <Route path="/coupons/edit/:couponId" element={<AdminEditCouponPage/>} />
-          <Route path="/admin/coupons" element={<AdminCouponsPage/>} />
-          <Route path="/admin/orders" element={<AdminOrdersPage/>} />
+          <Route path="admin/add-product" element={<AdminPage/>} />
+          <Route path="admin/products" element={<AdminProductsPage/>} />
+          <Route path="products/edit/:ProductId" element={<AdminEditProductPage  />} />
+          <Route path="admin/add-user" element={<AdminAddUSerPage/>} />
+          <Route path="admin/users" element={<AdminUsersPage/>} />
+          <Route path="users/edit/:userId" element={<AdminEditUsersPage  />} />
+          <Route path="admin/add-coupon" element={<AdminAddCouponPage/>} />
+          <Route path="coupons/edit/:couponId" element={<AdminEditCouponPage/>} />
+          <Route path="admin/coupons" element={<AdminCouponsPage/>} />
+          <Route path="admin/orders" element={<AdminOrdersPage/>} />
         </Route>
           
           
-            <Route path="/Myprofile/info" element={<UserInfoPage />} />
-             <Route path="/orders/:orderId" element={<OrderPage/>} />
+            <Route path="Myprofile/info" element={<UserInfoPage />} />
+             <Route path="orders/:orderId" element={<OrderPage/>} />
 
 
     </Routes>

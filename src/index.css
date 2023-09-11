@@ -15,6 +15,7 @@ body{
   color:white !important;
   user-select: none;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 
