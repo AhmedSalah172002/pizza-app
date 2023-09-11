@@ -9,7 +9,7 @@ const GetProductDetails = (id) => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getOneProduct(id))
-    },[])
+    },[id])
 
     const Product = useSelector((state) => state.allproducts.oneProduct);
     let item = [];
